@@ -1,0 +1,6 @@
+install node in your PC.
+open command prompt in your folder containing source code.
+write npm install
+write npm start
+goto webbrowser and write localhost:3000
+wite a query in search box and hot search

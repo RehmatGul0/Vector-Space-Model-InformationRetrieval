@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Vector Space Model IR</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <div class="text-center">
+        <div class="jumbotron container-fluid">
+            <h1>Information Retrieval</h1>
+            <h4 class="lead">Assignment # 2</h4>
+        </div>
+        <container>
+            <form action="/vsm" method="POST">
+                <h1 class="h3 mb-3 font-weight-normal"> Vector Space Model Query ..</h1>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">QUERY</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Enter your querry here" name="query">
+                </div>
+                <button type="submit" btn btn-primary btn-sm">Submit</button>
+
+                <p class="mt-5 mb-3 text-muted">&copy; 2019 Information Retrieval </p>
+            </form>
+
+        </container>
+    </div>
+    <div class="container">
+        <h6>Execution time: <%- time %> milliseconds. </h6>
+        <h6>Query: <%- query %> . </h6>
+        <h6>Threshold: 0.00005</h6>
+        <ol>
+            <% for(var i=0; i < rank.length; i++) { %>
+            <% if(rank[i].rank > 0.00005){ %>
+                <li>
+                    <span class="font-weight-bold text-primary">Document ID:</span> <%= rank[i].documentID %>
+                    <span class="font-weight-bold text-primary"> Rank:</span> <%= rank[i].rank %></br>
+                    <span class="font-weight-bold text-primary">Document Link: </span><a href="/getDocument/<%= i+1 %>" target="_blank" class="text-success">Document<%= i+1 %>.txt</a>
+                </li>
+            <% } %>
+            <% } %>
+        </ol>
+</body>
+
+</html>
